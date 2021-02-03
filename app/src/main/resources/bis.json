@@ -1,0 +1,124 @@
+{
+  "war": [
+    {
+      "title": "2.37 GCD - Chicken Fettuccine",
+      "url": "https://etro.gg/gearset/465c5777-b594-497d-8eac-b45fe2646009",
+      "color": [ 0, 0, 255 ]
+    },
+    {
+      "title": "2.38 GCD - Smoked Chicken",
+      "url": "https://etro.gg/gearset/6e7c6fd5-7618-466c-8284-8c2cc0f611c3",
+      "color": [ 0, 0, 255 ]
+    },
+    {
+      "title": "2.43 GCD - Smoked Chicken",
+      "url": "https://etro.gg/gearset/1f52b3ea-3bab-4a6b-8bfd-8bdcac766d39",
+      "color": [ 0, 0, 255 ]
+    }
+  ],
+  "pld": [
+    {
+      "title": "2.43 GCD - Smoked Chicken",
+      "url": "https://etro.gg/gearset/fba098d3-31d9-4cb5-aefe-0e1aa2d8909c",
+      "color": [ 0, 0, 255 ]
+    },
+    {
+      "title": "2.42 GCD -  Chicken Fettuccine",
+      "url": "https://etro.gg/gearset/1a57097a-23a1-4423-affd-223937d90a51",
+      "color": [ 0, 0, 255 ]
+    },
+    {
+      "title": "2.40 GCD -  Chicken Fettuccine",
+      "url": "https://etro.gg/gearset/993cfaea-ba08-4bab-92c7-93a5c345d862",
+      "color": [ 0, 0, 255 ]
+    }
+  ],
+  "gnb": [
+    {
+      "title": "2.40 GCD - Chicken Fettuccine",
+      "url": "https://etro.gg/gearset/d9b38c25-8a2a-48c9-8105-e08a8d1d20a8",
+      "color": [ 0, 0, 255 ]
+    },
+    {
+      "title": "2.41 GCD - Chicken Fettuccine",
+      "url": "https://etro.gg/gearset/3a00ff65-fd0d-45b0-adc1-f4f1a6a2b69a",
+      "color": [ 0, 0, 255 ]
+    },
+    {
+      "title": "2.42 GCD - Chicken Fettuccine",
+      "url": "https://etro.gg/gearset/7527d6cd-4f2a-4cf0-b769-0b8335906e79",
+      "color": [ 0, 0, 255 ]
+    },
+    {
+      "title": "2.43 GCD - Smoked Chicken",
+      "url": "https://etro.gg/gearset/6f5d9ece-2deb-4226-b4a8-9c32440ee2fd",
+      "color": [ 0, 0, 255 ]
+    }
+  ],
+  "drk": [
+    {
+      "title": "2.38 GCD - Chicken Fettuccine",
+      "url": "https://etro.gg/gearset/6a9cdaa0-d1d2-4431-a5f2-62d3c903876f",
+      "color": [ 0, 0, 255 ]
+    },
+    {
+      "title": "2.41 GCD - Chicken Fettuccine",
+      "url": "https://etro.gg/gearset/0d179920-5123-45d5-9cc9-6e674c14a50a",
+      "color": [ 0, 0, 255 ]
+    },
+    {
+      "title": "2.43 GCD - Smoked Chicken",
+      "url": "https://etro.gg/gearset/59d18629-5fa3-43c0-8614-f9e0ca03a15a",
+      "color": [ 0, 0, 255 ]
+    }
+  ],
+  "whm": [
+    {
+      "title": "You have a lot to choose from! Healer sets are highly subjective based on personal and party play. - The balance.",
+      "url": "Missing",
+      "color": [ 0, 255, 0 ]
+    }
+  ],
+  "ast": [
+    {
+      "title": "Almost Too Fastro - Twilight Popoto Salad",
+      "url": "https://etro.gg/gearset/db203250-a257-47b0-a559-08af66622d60",
+      "color": [ 0, 255, 0 ]
+    }
+  ],
+  "sch": [
+    {
+      "title": "2.37 GCD - Smoked Chicken",
+      "url": "https://etro.gg/gearset/2fb824b8-84d7-4362-ac77-6dbb0ec4ed97",
+      "color": [ 0, 255, 0 ]
+    }
+  ],
+  "nin": [
+    {
+      "title": "Based - Smoked Chicken",
+      "url": "https://etro.gg/gearset/a0c470fd-b94b-425a-baa6-4a6638ce7b18",
+      "color": [ 255, 0, 0 ]
+    }
+  ],
+  "brd": [
+    {
+      "title": "Also based - Smoked Chicken",
+      "url": "https://etro.gg/gearset/865fc886-994f-4c28-8fc1-4379f160a916",
+      "color": [ 255, 0, 0 ]
+    }
+  ],
+  "blm": [
+    {
+      "title": "High spell speed Explosion - Zefir",
+      "url": "https://etro.gg/gearset/235acc06-52b2-4e42-892b-6cb5334fbfee",
+      "color": [ 255, 0, 0 ]
+    }
+  ],
+  "rdm": [
+    {
+      "title": "Rezz-mage 2.5 GCD - Smoked Chicken",
+      "url": "https://etro.gg/gearset/7ebfc20a-cfe0-4848-b1ec-f1148f8f08fd",
+      "color": [ 255, 0, 0 ]
+    }
+  ]
+}
