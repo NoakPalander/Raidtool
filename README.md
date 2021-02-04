@@ -11,6 +11,12 @@ ff!schedule clean - Removes any schedule
 ff!schedule when - Displays when the schedule is booked for
 ff!bis <class> - Displays the best in slot gear for the entered class (e.g: ff!bis war)
 ff!source - Displays the link to this github/page.
+
+Random text memes:
+ff!t0nk or ff!tonk
+ff!divination
+ff!shirk
+ff!paladin
 ```
 
 ## Running
