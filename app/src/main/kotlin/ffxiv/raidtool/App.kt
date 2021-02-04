@@ -21,6 +21,9 @@ fun main(args: Array<String>) {
     val parser = EventParser(botConfig.prefix)
 
     parser.hooks = hashMapOf(
+        "shirk" to { _, e -> e.sendMessage("Jag provokar och sen lägger jag shirk.... jag har ingen shirk!").queue() },
+        "divination" to { _, e -> e.sendMessage("Divination blir sen..").queue() },
+        "source" to { _, e -> e.sendMessage("https://github.com/NoakPalander/Raidtool/blob/master/README.md").queue() },
         "t0nk" to { _, e -> e.sendMessage("Menade du blå dps?").queue() },
         "tonk" to { _, e -> e.sendMessage("Menade du dps?").queue() },
         "paladin" to { _, e -> e.sendMessage("Vi svär inte framför Snowman!").queue {
@@ -90,7 +93,7 @@ fun main(args: Array<String>) {
             if (commandArgs.isNotEmpty()) {
                 // Loads the BIS-sets
                 val sets = ObjectMapper().readValue<Map<String, List<BestInSlot>>>(File("${resourcePath}bis.json"))
-                if (sets.containsKey(commandArgs.first())) {
+                if (sets.containsKey(commandArgs.first().toLowerCase())) {
                     val builder = EmbedBuilder()
                     builder.setTitle(commandArgs.first().toUpperCase())
                     sets[commandArgs.first()]!!.forEach { bis ->
@@ -119,6 +122,7 @@ fun main(args: Array<String>) {
                 .addField("${botConfig.prefix}schedule when", "Visar det nuvarande schemat", false)
                 .addField("${botConfig.prefix}schedule clean", "Tar bort det gamla schemat", false)
                 .addField("${botConfig.prefix}bis", "Visar ditt BIS-set, glöm inte klassnamnet [e.x: war]", false)
+                .addField("${botConfig.prefix}source", "Visar 'readme' filen.", false)
                 .build()
             ).queue()
         }

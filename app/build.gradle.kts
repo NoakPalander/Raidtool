@@ -51,20 +51,23 @@ application {
 
 project.setProperty("mainClassName", "ffxiv.raidtool.AppKt")
 
+tasks.withType<JavaExec> {
+    args = listOf("src/main/resources")
+}
 
 tasks {
     named<ShadowJar>("shadowJar") {
-        archiveBaseName.set("raidtool")
+        archiveFileName.set("Raidtool.jar")
         mergeServiceFiles()
         manifest {
             attributes(mapOf("Main-Class" to "ffxiv.raidtool.AppKt"))
         }
-
-        val dir = File("bin")
-        dir.delete()
-        dir.mkdir()
-
-        File("app/build/libs/raidtool-all.jar").copyTo(File("bin/Raidtool.jar"), true)
-        File("app/src/main/resources/").copyRecursively(File("bin/"), true)
     }
+}
+
+tasks.register<Copy>("bin") {
+    dependsOn("shadowJar")
+    from("$buildDir/libs/", "$projectDir/src/main/resources/")
+    include("*.jar", "*.json")
+    into("$rootDir/bin")
 }
