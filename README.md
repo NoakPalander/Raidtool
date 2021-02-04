@@ -17,6 +17,9 @@ ff!t0nk or ff!tonk
 ff!divination
 ff!shirk
 ff!paladin
+ff!war-chad
+ff!snowman
+ff!snowman2
 ```
 
 ## Running
