@@ -96,7 +96,7 @@ fun main(args: Array<String>) {
                 if (sets.containsKey(commandArgs.first().toLowerCase())) {
                     val builder = EmbedBuilder()
                     builder.setTitle(commandArgs.first().toUpperCase())
-                    sets[commandArgs.first()]!!.forEach { bis ->
+                    sets[commandArgs.first().toLowerCase()]!!.forEach { bis ->
                         builder.setColor(Color(bis.color[0], bis.color[1], bis.color[2]))
                         builder.addField(bis.title, bis.url, false)
                     }
