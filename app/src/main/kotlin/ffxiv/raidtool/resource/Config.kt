@@ -9,5 +9,6 @@ data class Config(
     @JsonProperty("token") val token: String,
     @JsonProperty("prefix") val prefix: String,
     @JsonProperty("snowman") val snowman: String,
-    @JsonProperty("snowman2") val snowman2: String
+    @JsonProperty("snowman2") val snowman2: String,
+    @JsonProperty("war-chad") val warChad: String
 )

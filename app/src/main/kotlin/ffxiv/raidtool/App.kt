@@ -31,12 +31,13 @@ fun main(args: Array<String>) {
         }},
         "snowman" to { _, e -> e.sendMessage(botConfig.snowman).queue() },
         "snowman2" to { _, e -> e.sendMessage(botConfig.snowman2).queue() },
+        "war-chad" to { _, e -> e.sendMessage(botConfig.warChad).queue() },
         "schedule" to { commandArgs, e ->
             if (commandArgs.isNotEmpty()) {
                 when (commandArgs.first()) {
                     // Creates a new schedule
                     "new" -> {
-                        arrayOf("Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag").forEach {
+                        arrayOf("Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag", "Måndag").forEach {
                             e.sendMessage(it).queue { message ->
                                 message.addReaction("✔").queue()
                                 message.addReaction("✖").queue()
