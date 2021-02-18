@@ -116,8 +116,15 @@
   ],
   "rdm": [
     {
-      "title": "Rezz-mage 2.5 GCD - Smoked Chicken",
+      "title": "Rezz-mage - Smoked Chicken",
       "url": "https://etro.gg/gearset/7ebfc20a-cfe0-4848-b1ec-f1148f8f08fd",
+      "color": [ 255, 0, 0 ]
+    }
+  ],
+  "mch": [
+    {
+      "title": "MCH - Smoked Chicken",
+      "url": "https://etro.gg/gearset/6920006c-a88b-49b2-8aaa-746ed1dcfdf8",
       "color": [ 255, 0, 0 ]
     }
   ]
