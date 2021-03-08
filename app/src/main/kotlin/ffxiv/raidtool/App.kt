@@ -10,9 +10,15 @@ import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.JDABuilder
 import net.dv8tion.jda.api.OnlineStatus
 import net.dv8tion.jda.api.entities.Activity
+import net.dv8tion.jda.api.entities.Role
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent
 import java.awt.Color
 import java.io.File
 import java.io.FileNotFoundException
+
+fun GuildMessageReceivedEvent.sendMessage(message: String) {
+    this.channel.sendMessage(message).queue()
+}
 
 fun main(args: Array<String>) {
     val resourcePath = if(args.isEmpty()) "" else args.first() + '/'
@@ -21,24 +27,24 @@ fun main(args: Array<String>) {
     val parser = EventParser(botConfig.prefix)
 
     parser.hooks = hashMapOf(
-        "shirk" to { _, e -> e.sendMessage("Jag provokar och sen lägger jag shirk.... jag har ingen shirk!").queue() },
-        "divination" to { _, e -> e.sendMessage("Divination blir sen..").queue() },
-        "source" to { _, e -> e.sendMessage("https://github.com/NoakPalander/Raidtool/blob/master/README.md").queue() },
-        "t0nk" to { _, e -> e.sendMessage("Menade du blå dps?").queue() },
-        "tonk" to { _, e -> e.sendMessage("Menade du dps?").queue() },
-        "paladin" to { _, e -> e.sendMessage("Vi svär inte framför Snowman!").queue {
+        "shirk" to { _, e -> e.sendMessage("Jag provokar och sen lägger jag shirk... jag har ingen shirk!") },
+        "divination" to { _, e -> e.sendMessage("Divination blir sen..") },
+        "source" to { _, e, -> e.sendMessage("https://github.com/NoakPalander/Raidtool/blob/master/README.md") },
+        "t0nk" to { _, e -> e.sendMessage("Menade du blå dps?") },
+        "tonk" to { _, e -> e.sendMessage("Menade du dps?") },
+        "paladin" to { _, e -> e.channel.sendMessage("Vi svär inte framför Snowman!").queue {
            it.addReaction("😠").queue()
         }},
-        "snowman" to { _, e -> e.sendMessage(botConfig.snowman).queue() },
-        "snowman2" to { _, e -> e.sendMessage(botConfig.snowman2).queue() },
-        "war-chad" to { _, e -> e.sendMessage(botConfig.warChad).queue() },
+        "snowman" to { _, e -> e.sendMessage(botConfig.snowman) },
+        "snowman2" to { _, e -> e.sendMessage(botConfig.snowman2) },
+        "war-chad" to { _, e -> e.sendMessage(botConfig.warChad) },
         "schedule" to { commandArgs, e ->
             if (commandArgs.isNotEmpty()) {
                 when (commandArgs.first()) {
                     // Creates a new schedule
                     "new" -> {
                         arrayOf("Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag", "Måndag").forEach {
-                            e.sendMessage(it).queue { message ->
+                            e.channel.sendMessage(it).queue { message ->
                                 message.addReaction("✔").queue()
                                 message.addReaction("✖").queue()
                             }
@@ -46,7 +52,7 @@ fun main(args: Array<String>) {
                             Thread.sleep(200)
                         }
 
-                        e.sendMessage("Glöm inte fylla i schemat senare! @everyone").queue()
+                        e.sendMessage("Glöm inte fylla i schemat senare! @everyone")
                     }
                     // Books the new schedule
                     "set" -> {
@@ -61,9 +67,9 @@ fun main(args: Array<String>) {
                         builder.setFooter("- Snowman's Angels")
                         data.forEach { builder.addField(it.day, it.time, false) }
 
-                        e.sendMessage(builder.build()).queue()
+                        e.channel.sendMessage(builder.build())
                         Thread.sleep(100)
-                        e.sendMessage("@everyone").queue()
+                        e.sendMessage("@everyone")
                     }
                     // Gets the current schedule
                     "when" -> {
@@ -75,10 +81,10 @@ fun main(args: Array<String>) {
                             builder.setColor(Color.GREEN)
                             builder.setFooter("- Snowman's Angels")
                             data.booked.forEach { builder.addField(it.day, it.time, false) }
-                            e.sendMessage(builder.build()).queue()
+                            e.channel.sendMessage(builder.build()).queue()
                         }
                         catch(_: FileNotFoundException) {
-                            e.sendMessage("Hittade inga bookade raid-sessioner").queue {
+                            e.channel.sendMessage("Hittade inga bookade raid-sessioner").queue {
                                 it.addReaction("\uD83D\uDE22").queue()
                             }
                         }
@@ -102,17 +108,17 @@ fun main(args: Array<String>) {
                         builder.addField(bis.title, bis.url, false)
                     }
 
-                    e.sendMessage(builder.build()).queue()
+                    e.channel.sendMessage(builder.build()).queue()
                 }
                 else {
-                    e.sendMessage("BIS är inte tillgängligt för Snowman").queue {
+                    e.channel.sendMessage("BIS är inte tillgängligt för Snowman").queue {
                         it.addReaction("\uD83D\uDE20")
                     }
                 }
             }
         },
         "help" to { _, e ->
-            e.sendMessage(EmbedBuilder()
+            e.channel.sendMessage(EmbedBuilder()
                 .setTitle("Raidtool")
                 .setColor(Color.ORANGE)
                 .setThumbnail(botConfig.snowman)
@@ -126,6 +132,12 @@ fun main(args: Array<String>) {
                 .addField("${botConfig.prefix}source", "Visar 'readme' filen.", false)
                 .build()
             ).queue()
+        },
+        "ff!notify" to { _, e ->
+            val role = e.guild.getRolesByName(botConfig.admin, true).first()
+            if (e.member!!.roles.contains(role)) {
+                // TODO: Send pm
+            }
         }
     )
 

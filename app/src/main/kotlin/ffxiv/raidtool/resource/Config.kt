@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 
 data class Config(
     @JsonProperty("id") val id: Long,
+    @JsonProperty("admin") val admin: String,
     @JsonProperty("secret") val secret: String,
     @JsonProperty("key") val key: String,
     @JsonProperty("token") val token: String,

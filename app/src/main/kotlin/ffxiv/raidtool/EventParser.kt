@@ -1,12 +1,11 @@
 package ffxiv.raidtool
 
-import net.dv8tion.jda.api.entities.TextChannel
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
 
 class EventParser(private val prefix: String) : ListenerAdapter() {
-    lateinit var hooks: HashMap<String, (List<String>, e: TextChannel) -> Unit>
+    lateinit var hooks: HashMap<String, (List<String>, GuildMessageReceivedEvent) -> Unit>
 
     // Someone joined the discord
     override fun onGuildMemberJoin(event: GuildMemberJoinEvent) {
@@ -24,7 +23,7 @@ class EventParser(private val prefix: String) : ListenerAdapter() {
             }
 
             if (hooks.containsKey(command))
-                hooks[command]!!.invoke(args, event.channel)
+                hooks[command]!!.invoke(args, event)
         }
     }
 }
