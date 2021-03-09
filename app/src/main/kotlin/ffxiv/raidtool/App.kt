@@ -12,6 +12,8 @@ import net.dv8tion.jda.api.OnlineStatus
 import net.dv8tion.jda.api.entities.Activity
 import net.dv8tion.jda.api.entities.Role
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent
+import net.dv8tion.jda.api.requests.GatewayIntent
+import net.dv8tion.jda.api.utils.MemberCachePolicy
 import java.awt.Color
 import java.io.File
 import java.io.FileNotFoundException
@@ -133,17 +135,37 @@ fun main(args: Array<String>) {
                 .build()
             ).queue()
         },
-        "ff!notify" to { _, e ->
+        "notify" to { _, e ->
             val role = e.guild.getRolesByName(botConfig.admin, true).first()
             if (e.member!!.roles.contains(role)) {
-                // TODO: Send pm
+                try {
+                    // Retrieves the entire member list and iterates over it, excludes bots and the original user
+                    e.guild.members.filterNot { it.user.isBot || it.user == e.author }.forEach { member ->
+                        member.user.openPrivateChannel().queue { channel ->
+                            val data: Booked = ObjectMapper().readValue(File("${resourcePath}data.json"))
+                            val builder = EmbedBuilder()
+                            builder.setTitle("Glöm inte raid")
+                            builder.setColor(Color.GREEN)
+                            builder.setFooter("- Snowman's Angels")
+                            data.booked.forEach { builder.addField(it.day, it.time, false) }
+                            channel.sendMessage(builder.build()).queue { it.addReaction("❤").queue() }
+                        }
+                    }
+                }
+                catch(_: FileNotFoundException) {
+                    e.channel.sendMessage("Hittade inga bookade raid-sessioner").queue {
+                        it.addReaction("\uD83D\uDE22").queue()
+                    }
+                }
             }
         }
     )
 
     JDABuilder.createDefault(botConfig.token)
+        .enableIntents(GatewayIntent.GUILD_PRESENCES, GatewayIntent.GUILD_MEMBERS)
         .addEventListeners(parser)
         .setActivity(Activity.watching("over Snowman"))
+        .setMemberCachePolicy(MemberCachePolicy.ALL)
         .setStatus(OnlineStatus.ONLINE)
         .build()
 }

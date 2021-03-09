@@ -6,7 +6,7 @@
       "color": [ 0, 0, 255 ]
     },
     {
-      "title": "2.38 GCD - Smoked Chicken",
+      "title": "Fell Cleave goes brrrrr",
       "url": "https://etro.gg/gearset/6e7c6fd5-7618-466c-8284-8c2cc0f611c3",
       "color": [ 0, 0, 255 ]
     },
@@ -74,8 +74,8 @@
   ],
   "whm": [
     {
-      "title": "You have a lot to choose from! Healer sets are highly subjective based on personal and party play. - The balance.",
-      "url": "Missing",
+      "title": "Albobs specialare",
+      "url": "https://etro.gg/gearset/4273e207-e68a-4424-91ea-4ac2278b6243",
       "color": [ 0, 255, 0 ]
     }
   ],
@@ -88,7 +88,7 @@
   ],
   "sch": [
     {
-      "title": "2.37 GCD - Smoked Chicken",
+      "title": "BIG-T käkar kyckling",
       "url": "https://etro.gg/gearset/2fb824b8-84d7-4362-ac77-6dbb0ec4ed97",
       "color": [ 0, 255, 0 ]
     }
@@ -110,14 +110,21 @@
   "blm": [
     {
       "title": "High spell speed Explosion - Zefir",
-      "url": "https://etro.gg/gearset/235acc06-52b2-4e42-892b-6cb5334fbfee",
+      "url": "https://etro.gg/gearset/cd57552e-dff8-4d29-a712-d75c01656daa",
       "color": [ 255, 0, 0 ]
     }
   ],
   "rdm": [
     {
-      "title": "Rezz-mage 2.5 GCD - Smoked Chicken",
+      "title": "Rezz-mage - Smoked Chicken",
       "url": "https://etro.gg/gearset/7ebfc20a-cfe0-4848-b1ec-f1148f8f08fd",
+      "color": [ 255, 0, 0 ]
+    }
+  ],
+  "mch": [
+    {
+      "title": "MCH - Smoked Chicken",
+      "url": "https://etro.gg/gearset/6920006c-a88b-49b2-8aaa-746ed1dcfdf8",
       "color": [ 255, 0, 0 ]
     }
   ]
