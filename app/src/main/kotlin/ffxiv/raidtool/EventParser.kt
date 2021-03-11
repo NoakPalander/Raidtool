@@ -1,18 +1,10 @@
 package ffxiv.raidtool
 
-import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
 
 class EventParser(private val prefix: String) : ListenerAdapter() {
     lateinit var hooks: HashMap<String, (List<String>, GuildMessageReceivedEvent) -> Unit>
-
-    // Someone joined the discord
-    override fun onGuildMemberJoin(event: GuildMemberJoinEvent) {
-        event.guild.defaultChannel?.sendMessage("Var frälsad ${event.member.asMention}!")?.queue {
-            it.addReaction("\uD83D\uDE03").queue()
-        }
-    }
 
     // Someone sent a message
     override fun onGuildMessageReceived(event: GuildMessageReceivedEvent) {

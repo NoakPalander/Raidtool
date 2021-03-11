@@ -9,8 +9,11 @@ ff!schedule new - Creates a new schedule poll
 ff!schedule set - Removes the old schedule and books the new one
 ff!schedule clean - Removes any schedule
 ff!schedule when - Displays when the schedule is booked for
+ff!schedule add <day/days> - Add days to the schedule
+ff!schedule cancel <day/days> - Cancels days from the schedule
 ff!bis <class> - Displays the best in slot gear for the entered class (e.g: ff!bis war)
 ff!notify - Notifes all members of the raid schedule.
+ff!source - Displays the github README.md file 
 
 Random text memes:
 ff!t0nk or ff!tonk
