@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22f52b34-45ca-4de4-88ce-79d5c614dacb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/ffxiv/raidtool/App.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/ffxiv/raidtool/App.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/ffxiv/raidtool/resource/Config.kt" beforeDir="false" />
-    </list>
+    <list default="true" id="22f52b34-45ca-4de4-88ce-79d5c614dacb" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -133,7 +129,7 @@
       <workItem from="1612806888738" duration="66000" />
       <workItem from="1615231373196" duration="3308000" />
       <workItem from="1615242643287" duration="5338000" />
-      <workItem from="1615497081531" duration="6948000" />
+      <workItem from="1615497081531" duration="6986000" />
     </task>
     <servers />
   </component>
