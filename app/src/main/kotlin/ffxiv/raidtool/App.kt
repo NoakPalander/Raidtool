@@ -25,7 +25,7 @@ fun main(args: Array<String>) {
     parser.hooks = hashMapOf(
         "shirk" to { _, e -> e.sendMessage("Jag provokar och sen lägger jag shirk... jag har ingen shirk!") },
         "divination" to { _, e -> e.sendMessage("Divination blir sen..") },
-        "source" to { _, e, -> e.sendMessage("https://github.com/NoakPalander/Raidtool/blob/master/README.md") },
+        "source" to { _, e -> e.sendMessage("https://github.com/NoakPalander/Raidtool/blob/master/README.md") },
         "t0nk" to { _, e -> e.sendMessage("Menade du blå dps?") },
         "tonk" to { _, e -> e.sendMessage("Menade du dps?") },
         "paladin" to { _, e -> e.channel.sendMessage("Vi svär inte framför Snowman!").queue {
@@ -55,6 +55,9 @@ fun main(args: Array<String>) {
         },
         "bis" to { commandArgs, event ->
             getBestInSlot(resourcePath, commandArgs, event)
+        },
+        "guides" to { _, event ->
+            getGuide(resourcePath, event, botConfig.limit)
         },
         "help" to { _, e ->
             e.channel.sendMessage(EmbedBuilder()

@@ -11,5 +11,6 @@ data class Config(
     @JsonProperty("prefix") val prefix: String,
     @JsonProperty("snowman") val snowman: String,
     @JsonProperty("snowman2") val snowman2: String,
-    @JsonProperty("war-chad") val warChad: String
+    @JsonProperty("war-chad") val warChad: String,
+    @JsonProperty("limit") val limit: String
 )
