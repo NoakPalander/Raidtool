@@ -13,7 +13,7 @@ ff!schedule add <day/days> - Add days to the schedule
 ff!schedule cancel <day/days> - Cancels days from the schedule
 ff!bis <class> - Displays the best in slot gear for the entered class (e.g: ff!bis war)
 ff!notify - Notifes all members of the raid schedule.
-ff!guide - Displays an embed with links to relevant guides for each fight.
+ff!guides - Displays an embed with links to relevant guides for each fight.
 ff!source - Displays the github README.md file 
 
 Random text memes:
