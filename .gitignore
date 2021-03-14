@@ -1,5 +1,4 @@
 bin/
-app/src/main/resources/discord_config.json
-app/src/
+app/src/main/resources/discord_config.json 
 app/build/libs
 app/build/resources/main/discord_config.json

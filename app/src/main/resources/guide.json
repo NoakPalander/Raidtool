@@ -1,0 +1,20 @@
+{
+  "videos": [
+    {
+      "title": "Eden Umbra Savage [E9S]",
+      "url": ["https://youtu.be/DxYIWuyQw-E"]
+    },
+    {
+      "title": "Eden Litany Savage [E10S]",
+      "url": ["https://youtu.be/ASKkL7oNMcs"]
+    },
+    {
+      "title": "Eden Anamorphosis Savage [E11S]",
+      "url": ["https://youtu.be/MnzUqLR6mAI"]
+    },
+    {
+      "title": "Eden Eternity Savage [E12S]",
+      "url": ["https://youtu.be/DSLLxF4mSPU", "https://youtu.be/he6meSDSoq8"]
+    }
+  ]
+}
