@@ -73,7 +73,7 @@ fun main(args: Array<String>) {
                 .addField("${botConfig.prefix}schedule add <dagar>", "Bokar ytterligare dagar", false)
                 .addField("${botConfig.prefix}schedule clean", "Tar bort det gamla schemat", false)
                 .addField("${botConfig.prefix}bis", "Visar ditt BIS-set, glöm inte klassnamnet [e.x: war]", false)
-                .addField("${botConfig.prefix}guide", "Visar de olika guiderna vi brukar använda oss av", false)
+                .addField("${botConfig.prefix}guides", "Visar de olika guiderna vi brukar använda oss av", false)
                 .addField("${botConfig.prefix}source", "Visar 'readme' filen.", false)
                 .build()
             ).queue()
