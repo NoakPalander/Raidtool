@@ -20,7 +20,7 @@ fun getGuide(resourcePath: String, event: GuildMessageReceivedEvent, image: Stri
         .setAuthor("Snowman raid guide")
         .setColor(Color.RED)
         .setTitle("Eden Savage Guides")
-        .addField("OBS!", "Glöm inte att vi inte alltid kör precis som i guidsen, utan enbart använder dem som riktmedel!", false)
+        .addField("NOTE!", "Don't forget that we don't always play according to the guides, we only use them as a guideline!", false)
 
     json.guides.forEach { guide ->
         if (guide.urls.size == 1) {
@@ -33,6 +33,6 @@ fun getGuide(resourcePath: String, event: GuildMessageReceivedEvent, image: Stri
         }
     }
 
-    builder.setFooter("Inför raid, glöm ej: reparerad gear, raidmat, pots och framförallt var fokuserad")
+    builder.setFooter("Before raid, don't forget: repaired gear, raid food, pots och most importantly.. bring focus")
     event.channel.sendMessage(builder.build()).queue()
 }

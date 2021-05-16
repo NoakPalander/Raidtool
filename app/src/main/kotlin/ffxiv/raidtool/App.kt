@@ -23,12 +23,12 @@ fun main(args: Array<String>) {
     val parser = EventParser(botConfig.prefix)
 
     parser.hooks = hashMapOf(
-        "shirk" to { _, e -> e.sendMessage("Jag provokar och sen lägger jag shirk... jag har ingen shirk!") },
-        "divination" to { _, e -> e.sendMessage("Divination blir sen..") },
+        "shirk" to { _, e -> e.sendMessage("I provoke, you shirk... I have no shirk!") },
+        "divination" to { _, e -> e.sendMessage("Divination is late..") },
         "source" to { _, e -> e.sendMessage("https://github.com/NoakPalander/Raidtool/blob/master/README.md") },
-        "t0nk" to { _, e -> e.sendMessage("Menade du blå dps?") },
-        "tonk" to { _, e -> e.sendMessage("Menade du dps?") },
-        "paladin" to { _, e -> e.channel.sendMessage("Vi svär inte framför Snowman!").queue {
+        "t0nk" to { _, e -> e.sendMessage("Did you mean blue dps?") },
+        "tonk" to { _, e -> e.sendMessage("Did you mean blue dps?") },
+        "paladin" to { _, e -> e.channel.sendMessage("Don't curse in front of Snowman!").queue {
            it.addReaction("😠").queue()
         }},
         "snowman" to { _, e -> e.sendMessage(botConfig.snowman) },
@@ -64,17 +64,17 @@ fun main(args: Array<String>) {
                 .setTitle("Raidtool")
                 .setColor(Color.ORANGE)
                 .setThumbnail(botConfig.snowman)
-                .setDescription("Olika kommandon för raidtool botten")
-                .addField("${botConfig.prefix}help", "Visar hjälpsidan", false)
-                .addField("${botConfig.prefix}schedule new", "Tar bort det gamla och startar ett nytt schema", false)
-                .addField("${botConfig.prefix}schedule set", "Sätter en nytt schema, kräver datum dag följt av tid", false)
-                .addField("${botConfig.prefix}schedule when", "Visar det nuvarande schemat", false)
-                .addField("${botConfig.prefix}schedule cancel <dagar>", "Avbokar dag/dagar", false)
-                .addField("${botConfig.prefix}schedule add <dagar>", "Bokar ytterligare dagar", false)
-                .addField("${botConfig.prefix}schedule clean", "Tar bort det gamla schemat", false)
-                .addField("${botConfig.prefix}bis", "Visar ditt BIS-set, glöm inte klassnamnet [e.x: war]", false)
-                .addField("${botConfig.prefix}guides", "Visar de olika guiderna vi brukar använda oss av", false)
-                .addField("${botConfig.prefix}source", "Visar 'readme' filen.", false)
+                .setDescription("Different commandos for the raidtool bot")
+                .addField("${botConfig.prefix}help", "Displays the help page", false)
+                .addField("${botConfig.prefix}schedule new", "Removes the old and starts a new schedule", false)
+                .addField("${botConfig.prefix}schedule set", "Assigns a new schedule, requires a date followed by a time", false)
+                .addField("${botConfig.prefix}schedule when", "Displays the current schedule", false)
+                .addField("${botConfig.prefix}schedule cancel <dagar>", "Unbooks a day/days", false)
+                .addField("${botConfig.prefix}schedule add <dagar>", "Books additional days", false)
+                .addField("${botConfig.prefix}schedule clean", "Removes the old schedule", false)
+                .addField("${botConfig.prefix}bis", "Displays your BIS set, don't forget the class name [e.g: war]", false)
+                .addField("${botConfig.prefix}guides", "Displays the guides we tend to use", false)
+                .addField("${botConfig.prefix}source", "Displays the 'readme' file.", false)
                 .build()
             ).queue()
         },
@@ -87,7 +87,7 @@ fun main(args: Array<String>) {
                         member.user.openPrivateChannel().queue { channel ->
                             val data: Booked = ObjectMapper().readValue(File("${resourcePath}data.json"))
                             val builder = EmbedBuilder()
-                            builder.setTitle("Glöm inte raid")
+                            builder.setTitle("Don't forget raid")
                             builder.setColor(Color.GREEN)
                             builder.setFooter("- Snowman's Angels")
                             data.booked.forEach { builder.addField(it.day, it.time, false) }
@@ -96,7 +96,7 @@ fun main(args: Array<String>) {
                     }
                 }
                 catch(_: FileNotFoundException) {
-                    e.channel.sendMessage("Hittade inga bookade raid-sessioner").queue {
+                    e.channel.sendMessage("Couldn't find any raid sessions").queue {
                         it.addReaction("\uD83D\uDE22").queue()
                     }
                 }

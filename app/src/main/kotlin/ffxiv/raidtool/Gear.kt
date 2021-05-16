@@ -29,7 +29,7 @@ fun getBestInSlot(resourcePath: String, commandArgs: List<String>, event: GuildM
             event.channel.sendMessage(builder.build()).queue()
         }
         else {
-            event.channel.sendMessage("BIS är inte tillgängligt för Snowman").queue {
+            event.channel.sendMessage("BIS isn't available for Snowman").queue {
                 it.addReaction("\uD83D\uDE20")
             }
         }

@@ -17,7 +17,7 @@ data class RaidPoint(
 data class Booked(@JsonProperty("booked") val booked: List<RaidPoint>)
 
 fun newPoll(event: GuildMessageReceivedEvent) {
-    arrayOf("Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag", "Måndag").forEach {
+    arrayOf("Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Monday").forEach {
         event.channel.sendMessage(it).queue { message ->
             message.addReaction("✔").queue()
             message.addReaction("✖").queue()
@@ -26,7 +26,7 @@ fun newPoll(event: GuildMessageReceivedEvent) {
         Thread.sleep(200)
     }
 
-    event.channel.sendMessage("Glöm inte fylla i schemat senare! @everyone").queue()
+    event.channel.sendMessage("Don't forget to fill in the schedule later! @everyone").queue()
 }
 
 fun setSchedule(resourcePath: String, args: List<String>, event: GuildMessageReceivedEvent) {
@@ -51,7 +51,7 @@ fun getSchedule(resourcePath: String, event: GuildMessageReceivedEvent) {
         event.channel.sendMessage(builder.build()).queue()
     }
     catch(_: FileNotFoundException) {
-        event.channel.sendMessage("Hittade inga bookade raid-sessioner").queue {
+        event.channel.sendMessage("Didn't find any booked raid sessions!").queue {
             it.addReaction("\uD83D\uDE22").queue()
         }
     }
@@ -65,17 +65,17 @@ fun addDate(resourcePath: String, args: List<String>, event: GuildMessageReceive
         }
 
         // Sorts the new schedule in weekday order
-        new.sortBy { arrayOf("Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag", "Måndag").indexOf(it.day) }
+        new.sortBy { arrayOf("Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Monday").indexOf(it.day) }
         File("${resourcePath}data.json").delete()
         ObjectMapper().writeValue(File("${resourcePath}data.json"), Booked(new))
 
         getSchedule(resourcePath, event)
         event.channel.sendMessage(
-            "Notera att [${args.drop(1).chunked(2).joinToString(",") { it.first() }}] nu också är inbokat i schemat! @everyone"
+            "Note: [${args.drop(1).chunked(2).joinToString(",") { it.first() }}] is now also booked @everyone"
         ).queue()
     }
     catch(_: FileNotFoundException) {
-        event.channel.sendMessage("Hittade ingen bokad raid-session, skapa en ny om du vill lägga till datum").queue()
+        event.channel.sendMessage("Didn't find any booked sessions, create a new schedule if you wanna add a date!").queue()
     }
 }
 
@@ -91,11 +91,11 @@ fun cancelDate(resourcePath: String, args: List<String>, event: GuildMessageRece
         ObjectMapper().writeValue(File("${resourcePath}data.json"), Booked(new))
         getSchedule(resourcePath, event)
         event.channel.sendMessage(
-            "Notera att [${args.drop(1).chunked(2).joinToString(",") { it.first() }}] nu är avbokade från schemat! @everyone"
+            "Note: [${args.drop(1).chunked(2).joinToString(",") { it.first() }}] are now canceled! @everyone"
         ).queue()
     }
     catch(_: FileNotFoundException) {
-        event.channel.sendMessage("Kan inte ta bort något datum då inget schema är bokat!").queue()
+        event.channel.sendMessage("Can't remove a date that isn't booked!").queue()
     }
 }
 
